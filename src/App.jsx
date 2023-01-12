@@ -3,10 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import Layout from './components/Layout'
 import Home from './pages/Home'
-import IPBH from './pages/IPBH'
-import RRL from './pages/RRL'
-import VOLS from './pages/VOLS'
-import RTS from './pages/RTS'
+import GraphsPage from './pages/GraphsPage'
 import Other from './pages/Other'
 import './scss/App.scss'
 
@@ -15,10 +12,10 @@ export default function App() {
     <Routes>
       <Route path='/' element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path='/ipbh' element={<IPBH />} />
-        <Route path='/rrl' element={<RRL />} />
-        <Route path='/vols' element={<VOLS />} />
-        <Route path='/rts' element={<RTS />} />
+        <Route path='/ipbh' element={<GraphsPage />} />
+        <Route path='/rrl' element={<GraphsPage />} />
+        <Route path='/vols' element={<GraphsPage />} />
+        <Route path='/rts' element={<GraphsPage />} />
         <Route path='/other' element={<Other />} />
       </Route>rrl
     </Routes>
