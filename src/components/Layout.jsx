@@ -11,7 +11,7 @@ export default function Layout() {
       <Nav logo={<Logo />} />
       <Outlet />
       <Footer>
-        dashboard 4.1
+        dashboard 4.0
       </Footer>
     </>
   )

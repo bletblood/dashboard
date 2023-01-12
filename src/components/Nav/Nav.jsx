@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { Navbar, NavDropdown, Container, Pagination } from 'react-bootstrap'
+import { Dropdown, Navbar, NavDropdown, Container } from 'react-bootstrap'
 import './Nav.scss'
 
 export default function Nav(params) {
   const { logo } = params
-  const [title, setTitle] = useState('Начало')
+  const [title, setTitle] = useState('Главная')
+
+  const handleStyle = ({isActive}) => isActive ? {marginLeft: '.5rem', marginRight: '.5rem', color: 'green', textDecoration: 'none'} : {marginLeft: '.5rem', marginRight: '.5rem', color: 'black', textDecoration: 'none'}
+  const handleTitle = e => setTitle(e.target.innerText)
   
   return (
     <Navbar collapseOnSelect sticky="top" bg="grey" className='shadow-sm'>
@@ -14,26 +17,14 @@ export default function Nav(params) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <NavDropdown title={title} id="nav-dropdown">
-            <NavLink to='/' className='mx-2 text-decoration-none text-reset' onClick={e => setTitle(e.target.innerText)}>Начало</NavLink>
-            <NavLink to='/ipbh' className='mx-2 text-decoration-none text-reset' onClick={e => setTitle(e.target.innerText)}>IPBH</NavLink>
-            <NavLink to='/rrl' className='mx-2 text-decoration-none text-reset' onClick={e => setTitle(e.target.innerText)}>РРЛ</NavLink>
-            <NavLink to='/vols' className='mx-2 text-decoration-none text-reset' onClick={e => setTitle(e.target.innerText)}>ВОЛС</NavLink>
-            <NavLink to='/rts' className='mx-2 text-decoration-none text-reset' onClick={e => setTitle(e.target.innerText)}>РТС</NavLink>
-            <NavLink to='/other' className='mx-2 text-decoration-none text-reset' onClick={e => setTitle(e.target.innerText)}>Остальное</NavLink>
+            <NavLink to='/' style={handleStyle} onClick={handleTitle}>Главная</NavLink>
+            <NavLink to='/ipbh' style={handleStyle} onClick={handleTitle}>IPBH</NavLink>
+            <NavLink to='/rrl' style={handleStyle} onClick={handleTitle}>РРЛ</NavLink>
+            <NavLink to='/vols' style={handleStyle} onClick={handleTitle}>ВОЛС</NavLink>
+            <NavLink to='/rts' style={handleStyle} onClick={handleTitle}>РТС</NavLink>
+            <NavLink to='/other' style={handleStyle} onClick={handleTitle}>Остальное</NavLink>
           </NavDropdown>
         </Navbar.Collapse>
-        <Pagination className='m-0 p-0'>
-          <Pagination.First />
-          <Pagination.Prev />
-
-          <Pagination.Item>{2020}</Pagination.Item>
-          <Pagination.Item>{2021}</Pagination.Item>
-          <Pagination.Item>{2022}</Pagination.Item>
-          <Pagination.Item active>{2023}</Pagination.Item>
-
-          <Pagination.Next />
-          <Pagination.Last />
-        </Pagination>
       </Container>
     </Navbar>
   )

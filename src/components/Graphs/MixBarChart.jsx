@@ -1,5 +1,5 @@
 import React from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from "recharts";
 
 const data = [
   {
@@ -63,9 +63,8 @@ const MixBarChart = (params) => {
           bottom: 5
         }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
-        <YAxis />
+        <YAxis hide='true'/>
         <Tooltip />
         <Legend />
         <Bar dataKey="pv" stackId="a" fill="#8884d8" />

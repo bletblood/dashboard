@@ -1,5 +1,5 @@
 import React from 'react'
-import { ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Scatter } from "recharts";
+import { ComposedChart, Line, Area, Bar, XAxis, YAxis, Tooltip, Legend, Scatter } from "recharts";
 
 const data = [
   {
@@ -46,25 +46,30 @@ const data = [
   }
 ];
 
-const MixLineBarChart = () => {
+const MixLineBarChart = (params) => {
+  const { children, width } = params
   return (
-    <div className="content-line-bar">
-      <ComposedChart
-        width={500}
-        height={400}
-        data={data}
-      >
-        <CartesianGrid stroke="#f5f5f5" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Area type="monotone" dataKey="amt" fill="#8884d8" stroke="#8884d8" />
-        <Bar dataKey="pv" barSize={20} fill="#413ea0" />
-        <Line type="monotone" dataKey="uv" stroke="#ff7300" />
-        <Scatter dataKey="cnt" fill="red" />
-      </ComposedChart>
-    </div>
+    <>
+      {children}
+      <div className="content-bar">
+        <div className="content-line-bar">
+          <ComposedChart
+            width={width}
+            height={300}
+            data={data}
+          >
+            <XAxis dataKey="name" />
+            <YAxis hide='true'/>
+            <Tooltip />
+            <Legend />
+            {/* <Area type="monotone" dataKey="amt" fill="#8884d8" stroke="#8884d8" /> */}
+            <Bar dataKey="pv" barSize={20} fill="#413ea0" />
+            <Line type="monotone" dataKey="uv" stroke="#ff7300" />
+            {/* <Scatter dataKey="cnt" fill="red" /> */}
+          </ComposedChart>
+        </div>
+      </div>
+    </>
   )
 }
 
