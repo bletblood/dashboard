@@ -1,0 +1,20 @@
+nav {
+  .container-fluid {
+    background: #f5f5f5!important;
+  }
+
+  .pagination {
+    .page-item:not(.active) {
+      .page-link {
+        color: black
+      }
+    }
+  
+    .page-item.active {
+      .page-link {
+        border: 1px solid lightgray;
+        background: lightgray;
+      }
+    }
+  } 
+}
