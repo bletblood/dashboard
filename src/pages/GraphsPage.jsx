@@ -1,8 +1,9 @@
 import React from 'react'
 
-const GraphsPage = () => {
+const GraphsPage = (params) => {
+  const { url } = params
   return (
-    <div>GraphsPage</div>
+    <div>GraphsPage, {url}</div>
   )
 }
 
