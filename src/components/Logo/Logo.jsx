@@ -11,6 +11,7 @@ const Logo = () => {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
+        <Dropdown.Item href="/">Главная страница</Dropdown.Item>
         <Dropdown.Item href="/dashboard">Dashboard</Dropdown.Item>
         <Dropdown.Item href="/msv">MSV</Dropdown.Item>
         <Dropdown.Item href="/twamp">TWAMP</Dropdown.Item>
